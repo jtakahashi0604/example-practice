@@ -1,13 +1,31 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.2.0/schema.json",
   "vcs": {
     "enabled": true,
-    "clientKind": "git",
-    "useIgnoreFile": true
+    "clientKind": "git"
   },
-  "files": {
-    "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build"]
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              ":NODE:",
+              ":PACKAGE:",
+              ":BLANK_LINE:",
+              "@/_lib/**",
+              ":BLANK_LINE:",
+              "@/_schemas/**",
+              "@/_services/**",
+              "@/_actions/**",
+              ":BLANK_LINE:",
+              "@/_components/ui/**",
+              "@/_components/domain/**"
+            ]
+          }
+        }
+      }
+    }
   },
   "formatter": {
     "enabled": true,
@@ -18,20 +36,23 @@
     "enabled": true,
     "rules": {
       "recommended": true,
-      "suspicious": {
-        "noUnknownAtRules": "off"
+      "nursery": {
+        "useSortedClasses": "error"
       }
-    },
-    "domains": {
-      "next": "recommended",
-      "react": "recommended"
     }
   },
-  "assist": {
-    "actions": {
-      "source": {
-        "organizeImports": "on"
-      }
+  "css": {
+    "parser": {
+      "tailwindDirectives": true
     }
+  },
+  "files": {
+    "includes": [
+      "**",
+      "!.next",
+      "!node_modules",
+      "!src/_components/ui",
+      "!src/generated/prisma"
+    ]
   }
 }
