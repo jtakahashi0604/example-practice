@@ -38,6 +38,9 @@
       "recommended": true,
       "nursery": {
         "useSortedClasses": "error"
+      },
+      "suspicious": {
+        "noArrayIndexKey": "off"
       }
     }
   },
